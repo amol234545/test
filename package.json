@@ -28,7 +28,9 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "a"
+            "name": "a", 
+              "certificateFile": "./cert.pfx",
+              "certificatePassword": "this-is-a-secret"
           }
         },
         {
