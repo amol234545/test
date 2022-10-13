@@ -30,7 +30,7 @@
           "config": {
             "name": "a", 
               "certificateFile": "./cert.pfx",
-              "certificatePassword": "this-is-a-secret"
+              "certificatePassword": "rointisthebest"
           }
         },
         {
