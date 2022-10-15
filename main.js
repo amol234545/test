@@ -1,5 +1,4 @@
 const { Menu, app, BrowserWindow, dialog,ipcMain} = require("electron");
-const fetch = require("node-fetch").default
 const path = require("path")
 const config = require(path.join(__dirname,"config.json"))
 Menu.setApplicationMenu(null);
