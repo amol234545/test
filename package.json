@@ -16,7 +16,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.67",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.67",
     "@electron-forge/maker-zip": "^6.0.0-beta.67",
-    "electron": "^21.1.0"
+    "electron": "^21.1.1"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
@@ -28,9 +28,9 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "a", 
-              "certificateFile": "./cert.pfx",
-              "certificatePassword": "rointisthebest"
+            "name": "a",
+            "certificateFile": "./cert.pfx",
+            "certificatePassword": "rointisthebest"
           }
         },
         {
@@ -49,5 +49,13 @@
         }
       ]
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amol234545/test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amol234545/test/issues"
+  },
+  "homepage": "https://github.com/amol234545/test#readme"
 }

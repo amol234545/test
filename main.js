@@ -1,4 +1,5 @@
-const { Menu, app, BrowserWindow, dialog,ipcMain} = require("electron");
+const { Menu, app, BrowserWindow, dialog,screen} = require("electron");
+const http = require("http")
 const path = require("path")
 const config = require(path.join(__dirname,"config.json"))
 Menu.setApplicationMenu(null);
@@ -12,16 +13,25 @@ app.whenReady().then(() => {
     },
   });
   win.loadFile("index.html");
-  if (app.isPackaged == true) {
-    if (app.isInApplicationsFolder() != true) {
-      dialog
-        .showCertificateTrustDialog()
-        .then(() => {
-          app.moveToApplicationsFolder();
-        })
-        .catch((reason) => {});
+  var server = http.createServer(function(req,res){
+    if (req.url == "/getxy") {
+    res.useChunkedEncodingByDefault =false
+    let {x,y} = screen.getCursorScreenPoint()
+    res.end(`{"x":"${x}","y":"${y}"}`,"utf-8")
+    } else {
+     if (req.url == "/") {
+    res.end("boo")
+     } else {
+      if (req.url = "/close") {
+        server.close()
+      }
+     }
     }
-  }
+    })
+    var port = Math.round(3673) // Rounds to 3000
+    var urlt = "http://localhost:" + port
+    console.log(urlt)
+    server.listen(port)
 });
 
 app.on("activate", () => {
@@ -33,6 +43,25 @@ app.on("activate", () => {
         contextIsolation: false,
       },
     });
+    var server = http.createServer(function(req,res){
+      if (req.url == "/getxy") {
+      res.useChunkedEncodingByDefault =false
+      let {x,y} = screen.getCursorScreenPoint()
+      res.end(`{"x":"${x}","y":"${y}"}`,"utf-8")
+      } else {
+       if (req.url == "/") {
+      res.end("boo")
+       } else {
+        if (req.url = "/close") {
+          server.close()
+        }
+       }
+      }
+      })
+      var port = Math.round(3673) // Rounds to 3000
+      var urlt = "http://localhost:" + port
+      console.log(urlt)
+      server.listen(port)
     win.loadFile("index.html");
   }
 });
